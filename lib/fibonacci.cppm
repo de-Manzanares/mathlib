@@ -4,35 +4,27 @@ module;
 
 export module fibonacci;
 
-namespace mathlib::fibonacci {
-
 using ull = unsigned long long;
 
+export namespace mathlib {
 /**
  * @return The nth fibonacci number
- * @details fib_n[0,1,2] == [0,1,1]
- * (0,1,1,...)
- * @note boost and gmp have way cooler algorithms lol
+ * @note Boost and GMP have their own nth fib functions as well
  */
-export constexpr ull fib_n(const ull n) {
-  ull counter = 1;
+constexpr ull fib_n(const int n) {
+  if (n <= 2) {
+    return n == 0 ? 0 : 1;
+  }
+
+  int counter = 1;
   ull a{0};
   ull b{1};
   ull c{};
-  switch (n) {
-  case 0:
-    return a;
-  case 1:
-    return b;
-  case 2:
-    return a + b;
-  default: {
-  }
-  }
+
   while (counter < n) {
     c = a + b;
     if (c < b) {
-      throw std::overflow_error("fibonacci overflow");
+      throw std::overflow_error("overflow fib_n()");
     }
     a = b;
     b = c;
@@ -40,5 +32,4 @@ export constexpr ull fib_n(const ull n) {
   }
   return c;
 }
-
-} // namespace mathlib::fibonacci
+} // namespace mathlib
