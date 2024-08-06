@@ -1,13 +1,15 @@
-add_executable(test-fibonacci)
-target_sources(test-fibonacci
+add_executable(test-number-theory)
+target_sources(test-number-theory
         PUBLIC
-        fibonacci.cxx)
-target_link_libraries(test-fibonacci
+        number-theory.cxx)
+target_link_libraries(test-number-theory
         PUBLIC
         mathlib
-        Catch2::Catch2WithMain)
+        Catch2::Catch2WithMain
+        gmp
+        gmpxx)
 
 include(CTest)
 include(Catch)
 
-add_test(NAME TestFibonacci COMMAND test-fibonacci)
+add_test(NAME TestNumberTheory COMMAND test-number-theory)
