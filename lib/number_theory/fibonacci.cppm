@@ -2,14 +2,15 @@ module;
 
 #include <stdexcept>
 
-export module fibonacci;
+export module number_theory.fibonacci;
 
 using ull = unsigned long long;
 
 export namespace mathlib {
 /**
  * @return The nth fibonacci number
- * @note Boost and GMP have their own nth fib functions as well
+ * @note Boost and GMP have their own nth fib functions,and they are much better
+ * than this.
  */
 constexpr ull fib_n(const int n) {
   if (n <= 2) {

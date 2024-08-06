@@ -1,3 +1,3 @@
 export module mathlib;
 
-export import fibonacci;
+export import number_theory;
